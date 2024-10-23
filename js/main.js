@@ -121,47 +121,82 @@ canvas.addEventListener('mousemove', (event) => {
 // 真っすぐは 0,右なら1,左なら2で
 // マウスクリックイベントでボタンを検出
 let answer = [];
+let answer2 = [];
 canvas.addEventListener('click', (event) => {
   const mousePos = getMousePos(event);
   buttons.forEach(button => {
     if (isMouseOverButton(mousePos, button)) {
       isClick = true
       ClickItem = button.item;
+      let a = { moveToX: (150 + ClickItem * 250), moveToY: 360, lineToX: (150 + (ClickItem) * 250), lineToY:(360 + ( 171)), item: 1}
+      answer2.push(a)
       for (let j = 0; j < amidaBorderHeight; j++) {
         if (ClickItem == 0) {
-          if(amidaArray[ClickItem][j] == 1) {
+          if (amidaArray[ClickItem][j] == 1) {
             answer.push(1)
+            let a = { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem + 1) * 250), lineToY:(360 + ((j + 1) * 171)), item: 1}
             ClickItem = 1
-          }else {
+            let b =  { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem) * 250), lineToY:(360 + ((j + 2) * 171)), item: 1}
+            answer2.push(b)
+            answer2.push(a)
+          } else {
+            let a = { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem) * 250), lineToY:(360 + ((j + 2) * 171)), item: 1}
+            answer2.push(a)
             answer.push(0)
           }
-        }else if(ClickItem == 1) {
-          if(amidaArray[ClickItem][j] == 1) {
+        } else if (ClickItem == 1) {
+          if (amidaArray[ClickItem][j] == 1) {
             answer.push(1)
+            let a = { moveToX: (150 + ClickItem * 250) , moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem + 1) * 250), lineToY:(360 + ((j + 1) * 171)), item: 1}
             console.log(amidaArray)
             ClickItem = 2
-          }else if(amidaArray[ClickItem - 1][j] == 1) {
+            let b =  { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem) * 250), lineToY:(360 + ((j + 2) * 171)), item: 1}
+            answer2.push(b)
+            answer2.push(a)
+          } else if (amidaArray[ClickItem - 1][j] == 1) {
+            let a = { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem - 1) * 250), lineToY:(360 + ((j + 1) * 171)), item: 1}
             answer.push(2);
+            answer2.push(a)
             ClickItem = 0
-          }else {
+            let b =  { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem) * 250) , lineToY:(360 + ((j + 2) * 171)) , item: 1}
+            answer2.push(b)
+          } else {
+            let a = { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem) * 250) , lineToY:(360 + ((j + 2) * 171)) , item: 1}
+            answer2.push(a)
             answer.push(0);
           }
-        }else if(ClickItem == 2) {
-          if(amidaArray[ClickItem][j] == 1) {
+        } else if (ClickItem == 2) {
+          if (amidaArray[ClickItem][j] == 1) {
             answer.push(1)
             console.log(amidaArray)
+            let a = { moveToX: (150 + ClickItem * 250) , moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem + 1) * 250), lineToY:(360 + ((j + 1) * 171)), item: 3}
             ClickItem = 3
-          }else if(amidaArray[ClickItem - 1][j] == 1) {
+            let b =  { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)) , lineToX: (150 + (ClickItem) * 250), lineToY:(360 + ((j + 2) * 171)), item: 1}
+            answer2.push(b)
+            answer2.push(a)
+          } else if (amidaArray[ClickItem - 1][j] == 1) {
             answer.push(2);
+            let a = { moveToX: (150 + ClickItem * 250) , moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem - 1) * 250) , lineToY:(360 + ((j + 1) * 171)), item: 1}
             ClickItem = 1
-          }else {
+            let b =  { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem) * 250), lineToY:(360 + ((j + 2) * 171)), item: 1}
+            answer2.push(b)
+            answer2.push(a)
+          } else {
+            let a = { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem) * 250), lineToY:(360 + ((j + 2) * 171)), item: 1}
+            answer2.push(a)
             answer.push(0);
           }
-        }else {
-          if(amidaArray[ClickItem - 1][j] == 1) {
+        } else {
+          if (amidaArray[ClickItem - 1][j] == 1) {
+            let a = { moveToX: (150 + ClickItem * 250), moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem - 1) * 250), lineToY:(360 + ((j + 1) * 171)), item: 1}
+            answer2.push(a)
             answer.push(2)
             ClickItem = 2
-          }else {
+            let b =  { moveToX: (150 + ClickItem * 250) , moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem) * 250), lineToY:(360 + ((j + 2) * 171)), item: 1}
+            answer2.push(b)
+          } else {
+            let a = { moveToX: (150 + ClickItem * 250) , moveToY: (360 + ((j + 1) * 171)), lineToX: (150 + (ClickItem) * 250), lineToY:(360 + ((j + 2) * 171)), item: 1}
+            answer2.push(a)
             answer.push(0)
           }
         }
@@ -170,14 +205,25 @@ canvas.addEventListener('click', (event) => {
     console.log(answer)
   });
 });
-
+//ラインを書く関数
+function drawLine(ctx, startX, startY, endX, endY) {
+  ctx.strokeStyle = 'red';  // 線の色
+  ctx.lineWidth = 4;         // 線の太さ
+  ctx.beginPath(); // 新しいパスを開始
+  ctx.moveTo(startX * scaleX, startY * scaleY); // 始点の座標 (x, y)
+  ctx.lineTo(endX * scaleX, endY * scaleY); // 終点の座標 (x, y)
+  ctx.stroke(); // 線を描画
+}
 // メインループ
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height); // 画面をクリア
   drawButtons(); // ボタンを描画
   drawBorder();
+
   if (isClick) {
-    
+    for(let i = 0; i < answer2.length; i++) {
+      drawLine(ctx,answer2[i].moveToX,answer2[i].moveToY,answer2[i].lineToX,answer2[i].lineToY);
+    }
   }
   requestAnimationFrame(gameLoop); // 次のフレームを予約
 }
