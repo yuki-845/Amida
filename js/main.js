@@ -232,7 +232,7 @@ let count = 0;
 let isEnd = false
 // メインループ
 const img = new Image();
-img.src = "../img/hukidashi.png"; // 画像URL
+img.src = "./img/hukidashi.png"; // 画像URL
 
 let rectX
 let rectY
