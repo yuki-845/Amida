@@ -1,12 +1,20 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-const couponcode = "クーポンコード"
-const inpu = "「○○○○」を入力し"
-const get = "今すぐ獲得"
+//変更するところ
+//結果表示のところ
 const atari = "大当たり";
 const money = "$30"
 const bonus = "入金不要ボーナス"
+
+//ボタン
+const couponcode = "クーポンコード"
+const inpu = "「○○○○」を入力し"
+const get = "今すぐ獲得"
+
+//url
 const url = "https://example.com"
+
+//ここまで
 const BASE_WIDTH = 1080;  // デザインの基準幅
 const BASE_HEIGHT = 1920; // デザインの基準高さ
 const amidaBorderHeight = 6;
@@ -247,6 +255,7 @@ canvas.addEventListener("click", (event) => {
     window.location.href = url; // 遷移させたいURL
   }
 });
+
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height); // 画面をクリア
 
