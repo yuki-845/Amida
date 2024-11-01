@@ -6,6 +6,7 @@ const get = "今すぐ獲得"
 const atari = "大当たり";
 const money = "$30"
 const bonus = "入金不要ボーナス"
+const url = "https://example.com"
 const BASE_WIDTH = 1080;  // デザインの基準幅
 const BASE_HEIGHT = 1920; // デザインの基準高さ
 const amidaBorderHeight = 6;
@@ -243,7 +244,7 @@ canvas.addEventListener("click", (event) => {
     clickY <= rectY + rectHeight
   ) {
     // 四角形がクリックされた場合にURLに飛ぶ
-    window.location.href = "https://example.com"; // 遷移させたいURL
+    window.location.href = url; // 遷移させたいURL
   }
 });
 function gameLoop() {
@@ -255,7 +256,7 @@ function gameLoop() {
     console.log(answer2)
     if (count < answer2.length && answer2[count].item == 0) {
       console.log(count, answer2[count].A)
-      answer2[count].A += 19
+      answer2[count].A += 9
       if (answer2[count].A >= 0) {
         count += 1
         console.log(count)
@@ -265,7 +266,7 @@ function gameLoop() {
         }
       }
     } else if (count < answer2.length && answer2[count].item == 1) {
-      answer2[count].A += 25
+      answer2[count].A += 5
       if (answer2[count].A == 0) {
         count += 1
         if (answer2.length == count) {
@@ -274,7 +275,7 @@ function gameLoop() {
         }
       }
     } else if (count < answer2.length) {
-      answer2[count].A -= 25
+      answer2[count].A -= 5
       if (answer2[count].A == 0) {
         count += 1
         if (answer2.length == count) {
